@@ -1,0 +1,1 @@
+项目  setup-->选择Static Resources 添加一个新的静态资源   名称为pictureCarousel

@@ -1,0 +1,3 @@
+<apex:page controller="PictureCarouselController" sidebar="false">
+	<c:picture_carousel picSources="{!picSources}" picDescribes="{!picDescribes}"></c:picture_carousel>
+</apex:page>

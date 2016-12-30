@@ -1,0 +1,68 @@
+<apex:component >
+	<style>
+body,html,div,blockquote,img,label,p,h1,h2,h3,h4,h5,h6,pre,ul,ol,li,dl,dt,dd,form,a,fieldset,input,th,td
+	{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	list-style-type: none;
+	overflow-x: none
+}
+
+body {
+	line-height: 1;
+	font-size: 88%;
+	font-family: "微软雅黑"
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+	margin: 0;
+	font-weight: 400;
+	padding: 0;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+a {
+	color: #404040;
+	text-decoration: none;
+}
+</style>
+	<apex:styleSheet value="{!URLFOR($Resource.pictureCarousel, 'css/tuniu.css')}" />
+	<apex:includeScript value="{!URLFOR($Resource.pictureCarousel, 'js/jquery-2.1.4.min.js')}" />
+	<apex:includeScript value="{!URLFOR($Resource.pictureCarousel, 'js/index.js')}" />
+	<apex:attribute name="picSources"
+		description="the sources of pictures used to carousel" type="String[]"
+		required="true" />
+
+	<apex:attribute name="picDescribes"
+		description="the description of each picture" type="String[]"
+		required="true" />
+
+	<div class="center">
+		<div class="center_top">
+			<div class="content_middle">
+				<ul>
+					<li
+						style="background: url({!picSources[0]}) no-repeat center center; opacity: 100; filter: alpha(opacity = 1);"></li>
+					<apex:repeat value="{!picSources}" var="picSource" first="1">
+						<li style="background: url({!picSource}) no-repeat center center;"></li>
+					</apex:repeat>
+				</ul>
+				<div class="table">
+					<a class="small_active" href="javascript:;">{!picDescribes[0]}</a>
+					<apex:repeat value="{!picDescribes}" var="picDescribe" first="1">
+						<a href="javascript:;">{!picDescribe}</a>
+					</apex:repeat>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</apex:component>
